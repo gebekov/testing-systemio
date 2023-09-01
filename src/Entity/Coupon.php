@@ -3,10 +3,11 @@
 namespace App\Entity;
 
 use App\Coupon\CouponTypeEnum;
+use App\Repository\CouponRepository;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
-#[Entity]
+#[Entity(repositoryClass: CouponRepository::class)]
 class Coupon
 {
     #[Id]
