@@ -4,6 +4,7 @@ https://github.com/systemeio/test-for-candidates
 # Установка и запуск
 * `docker-compose up -d`
 * `docker-compose exec php bash`
+* (внутри контейнера) `composer install`
 * (внутри контейнера) `php bin/console doctrine:migrations:migrate`
 * (внутри контейнера) `php bin/console doctrine:fixtures:load`
 
