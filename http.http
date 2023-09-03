@@ -1,0 +1,24 @@
+POST {{host}}/v1/get-price
+Content-Type: application/json
+Accept: application/json
+
+{
+  "product": 1,
+  "taxNumber": "DE123456789",
+  "couponCode": "F15"
+}
+
+###
+
+POST {{host}}/v1/buy
+Content-Type: application/json
+Accept: application/json
+
+{
+  "product": 3,
+  "taxNumber": "DE123456789",
+  "couponCode": "F15",
+  "paymentProcessor": "stripe"
+}
+
+###
