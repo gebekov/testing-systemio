@@ -31,5 +31,7 @@ class ProductFixture extends Fixture
         $phoneCase->priceInCents = 10 * 100;
         $manager->persist($phoneCase);
         $this->referenceRepository->setReference(self::PHONE_CASE, $phoneCase);
+
+        $manager->flush();
     }
 }
