@@ -44,6 +44,6 @@ class GetPriceAction extends AbstractController
             throw new BadRequestHttpException($e->getMessage());
         }
 
-        return $this->json(['price' => $price]);
+        return $this->json(['price' => $price / 100]);
     }
 }
