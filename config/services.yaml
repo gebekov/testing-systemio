@@ -4,11 +4,16 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    app.countries_tax_patterns:
-        FR: '/^FR[A-Z]{2}[0-9]{9}$/'
-        DE: '/^DE[0-9]{9}$/'
-        IT: '/^IT[0-9]{11}$/'
-        GR: '/^GR[0-9]{9}$/'
+    app.tax_patterns:
+    - '/^DE[0-9]{9}$/'
+    - '/^IT[0-9]{11}$/'
+    - '/^FR[A-Z]{2}[0-9]{9}$/'
+    - '/^GR[0-9]{9}$/'
+    app.countries_tax:
+        DE: 0.19
+        IT: 0.22
+        FR: 0.19
+        GR: 0.24
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -28,4 +33,7 @@ services:
     # please note that last definitions always *replace* previous ones
     App\Validator\IsTaxNumberValidator:
         arguments:
-            $countriesTaxPatterns: '%app.countries_tax_patterns%'
+            $countriesTaxPatterns: '%app.tax_patterns%'
+    App\Tax\TaxCalculator:
+        arguments:
+            $taxMap: '%app.tax_patterns%'
