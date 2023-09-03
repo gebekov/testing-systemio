@@ -18,4 +18,9 @@ readonly class StripePaymentProcessor implements PaymentProcessorInterface
             throw new PaymentFailedException();
         }
     }
+
+    public function name(): string
+    {
+        return 'stripe';
+    }
 }

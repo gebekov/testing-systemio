@@ -19,4 +19,9 @@ readonly class PaypalPaymentProcessor implements PaymentProcessorInterface
             throw new PaymentFailedException($e->getMessage(), previous: $e);
         }
     }
+
+    public function name(): string
+    {
+        return 'paypal';
+    }
 }

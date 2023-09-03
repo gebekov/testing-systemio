@@ -10,4 +10,10 @@ interface PaymentProcessorInterface
      * @return void
      */
     public function pay(int $priceInCents): void;
+
+    /**
+     * Возвращает имя процессора оплаты
+     * @return string
+     */
+    public function name(): string;
 }
