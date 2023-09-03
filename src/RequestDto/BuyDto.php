@@ -17,7 +17,6 @@ class BuyDto
     #[IsTaxNumber]
     public string $taxNumber;
 
-    #[Assert\NotBlank]
     #[IsCouponExist]
     public string $couponCode;
 

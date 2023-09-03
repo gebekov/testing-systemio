@@ -2,6 +2,7 @@
 
 namespace App\RequestDto;
 
+use App\Validator\IsCouponExist;
 use App\Validator\IsTaxNumber;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -14,6 +15,6 @@ class GetPriceDto
     #[Assert\NotBlank]
     #[IsTaxNumber]
     public string $taxNumber;
-    #[Assert\NotBlank]
+    #[IsCouponExist]
     public string $couponCode;
 }
