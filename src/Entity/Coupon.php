@@ -17,6 +17,6 @@ class Coupon
     #[Column(type: 'string', enumType: CouponTypeEnum::class)]
     public CouponTypeEnum $type;
 
-    #[Column(type: 'decimal')]
+    #[Column(type: 'float')]
     public float $value;
 }
