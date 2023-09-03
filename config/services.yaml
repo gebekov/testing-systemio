@@ -36,4 +36,9 @@ services:
             $countriesTaxPatterns: '%app.tax_patterns%'
     App\Tax\TaxCalculator:
         arguments:
-            $taxMap: '%app.tax_patterns%'
+            $taxMap: '%app.countries_tax%'
+    App\Payment\PaymentService:
+        arguments:
+            $paymentProcessors:
+                - '@App\Payment\PaypalPaymentProcessor'
+                - '@App\Payment\StripePaymentProcessor'
