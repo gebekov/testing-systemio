@@ -13,14 +13,14 @@ readonly class CouponDiscountCalculator
     }
 
     /**
-     * @throws Exception
+     * @throws CouponNotFoundException
      */
     public function calculate(string $coupon, int $priceInCents): int
     {
         $coupon = $this->couponRepository->findOneByCode($coupon);
 
         if ($coupon === null) {
-            throw new Exception('Coupon not found: ' . $coupon);
+            throw new CouponNotFoundException($coupon);
         }
 
         return match ($coupon->type) {

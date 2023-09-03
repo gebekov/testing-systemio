@@ -15,18 +15,18 @@ readonly class TaxCalculator
     }
 
     /**
-     * @throws Exception
+     * @throws TaxFormatInvalidException
      */
     public function calculate(string $taxNumber, int $priceInCents): int
     {
         $country = substr($taxNumber, 0, 2);
         if ($country == '') {
-            throw new Exception('Tax number is invalid');
+            throw new TaxFormatInvalidException('Tax number is invalid');
         }
 
         $tax = $this->taxMap[$country] ?? null;
         if ($tax === null) {
-            throw new Exception('Given country is unknown: ' . $country);
+            throw new TaxFormatInvalidException('Given country is unknown: ' . $country);
         }
 
         return $priceInCents * $tax;

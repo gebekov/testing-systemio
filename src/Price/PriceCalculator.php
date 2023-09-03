@@ -3,9 +3,11 @@
 namespace App\Price;
 
 use App\Coupon\CouponDiscountCalculator;
+use App\Coupon\CouponNotFoundException;
 use App\Entity\Product;
 use App\Repository\CouponRepository;
 use App\Tax\TaxCalculator;
+use App\Tax\TaxFormatInvalidException;
 use Exception;
 
 readonly class PriceCalculator
@@ -17,7 +19,8 @@ readonly class PriceCalculator
     }
 
     /**
-     * @throws Exception
+     * @throws CouponNotFoundException
+     * @throws TaxFormatInvalidException
      */
     public function calculate(Product $product, string $taxNumber, string $coupon = null): int
     {
