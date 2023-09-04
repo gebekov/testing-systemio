@@ -78,7 +78,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "price": 10115
+  "price": 101.15
 }
 ```
 
